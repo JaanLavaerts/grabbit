@@ -8,14 +8,14 @@ import (
 // 5:hello -> "hello"
 // 10:hello jaan -> "hello jaan"
 // 10:hello:jaan -> "hello:jaan"
-func decodeString(bencodedString string) string {
+func decodeString(bencodedString string) (string, error) {
 	if bencodedString == "0:" {
-		return ""
+		return "", nil
 	}
 
 	length, err := strconv.Atoi(string(strings.Split(bencodedString, ":")[0]))
 	if err != nil {
-		return ""
+		return "", err
 	}
 
 	var result strings.Builder
@@ -23,5 +23,5 @@ func decodeString(bencodedString string) string {
 	for i := 1; i < length+1; i++ {
 		result.WriteByte(bencodedString[i+2])
 	}
-	return result.String()
+	return result.String(), nil
 }
