@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/JaanLavaerts/grabbit/bencode"
+)
 
 func main() {
-	fmt.Println(decodeString("10:hello:jap!"))
+	fmt.Println(bencode.DecodeString("5:hello"))
 }
