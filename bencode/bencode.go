@@ -24,7 +24,7 @@ func DecodeInteger(bencodedString string) (int, error) {
 
 	res, err := strconv.Atoi(value)
 	if err != nil {
-		return 0, nil
+		return 0, err
 	}
 	return res, nil
 }
