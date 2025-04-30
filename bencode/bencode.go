@@ -23,3 +23,13 @@ func DecodeString(bencodedString string) (string, error) {
 	}
 	return result.String(), nil
 }
+
+func DecodeInteger(bencodedString string) (int, error) {
+	value := bencodedString[1 : len(bencodedString)-1]
+
+	res, err := strconv.Atoi(value)
+	if err != nil {
+		return 0, nil
+	}
+	return res, nil
+}

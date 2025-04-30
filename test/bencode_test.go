@@ -31,3 +31,25 @@ func TestStringDecode(t *testing.T) {
 		}
 	}
 }
+
+func TestIntegerDecode(t *testing.T) {
+	tests := []struct {
+		input    string
+		expected int
+	}{
+		{"i42e", 42},
+		{"i0e", 0},
+		{"i-1e", -1},
+	}
+
+	for _, tt := range tests {
+		result, err := bencode.DecodeInteger(tt.input)
+		if err != nil {
+			t.Errorf("decodeInteger(%q) returned error: %v", tt.input, err)
+			continue
+		}
+		if result != tt.expected {
+			t.Errorf("decodeInteger(%q) = %d, want %d", tt.input, result, tt.expected)
+		}
+	}
+}
