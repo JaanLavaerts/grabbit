@@ -17,7 +17,7 @@ func TestStringDecode(t *testing.T) {
 		{"5:hello", "hello"},
 		{"11:hello world", "hello world"},
 		{"6:foobar", "foobar"},
-		{"8:username", "username"},
+		{"8:us:rname", "us:rname"},
 	}
 
 	for _, tt := range tests {
