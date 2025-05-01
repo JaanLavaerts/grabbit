@@ -7,5 +7,5 @@ import (
 )
 
 func main() {
-	fmt.Println(bencode.DecodeString("5:hello"))
+	fmt.Println(bencode.DecodeList("ll4:nest4:nestl4:deep3:deeeeee"))
 }
